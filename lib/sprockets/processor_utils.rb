@@ -55,13 +55,13 @@ module Sprockets
 
       type = input[:content_type]
       processors.reverse_each do |processor|
-       if (type == "text/css") && (data[:name] == 'ckeditor/skins/moono-lisa/editor')
+       if (type == "text/css") && (input[:name] == 'ckeditor/skins/moono-lisa/editor')
           puts "\n***** processor #{processor.inspect}"
           puts "***** input #{data.inspect}"
         end
         result = call_processor(processor, input.merge(data: data, metadata: metadata))
         data = result.delete(:data)
-       if (type == "text/css") && (data[:name] == 'ckeditor/skins/moono-lisa/editor')
+       if (type == "text/css") && (input[:name] == 'ckeditor/skins/moono-lisa/editor')
           puts "***** output #{data.inspect}\n\n"
         end
         metadata.merge!(result)
