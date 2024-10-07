@@ -53,12 +53,17 @@ module Sprockets
       data = input[:data] || ""
       metadata = (input[:metadata] || {}).dup
 
+      type = input[:content_type]
       processors.reverse_each do |processor|
-        puts "\n***** processor #{processor.inspect}"
-        puts "***** input #{data.inspect}"
+        if type == "text/css"
+          puts "\n***** processor #{processor.inspect}"
+          puts "***** input #{data.inspect}"
+        end
         result = call_processor(processor, input.merge(data: data, metadata: metadata))
         data = result.delete(:data)
-        puts "***** output #{data.inspect}\n\n"
+        if type == "text/css"
+          puts "***** output #{data.inspect}\n\n"
+        end
         metadata.merge!(result)
       end
 
