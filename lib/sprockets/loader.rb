@@ -125,6 +125,7 @@ module Sprockets
         end
 
         processors = processors_for(type, file_type, engine_extnames, pipeline)
+        puts "***** processors #{processors.inspect}"
 
         processors_dep_uri = build_processors_uri(type, file_type, engine_extnames, pipeline)
         dependencies = config[:dependencies] + [processors_dep_uri]
