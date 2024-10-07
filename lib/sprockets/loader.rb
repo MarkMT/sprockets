@@ -125,6 +125,7 @@ module Sprockets
         end
 
         processors = processors_for(type, file_type, engine_extnames, pipeline)
+        puts "***** name #{name.inspect}"
         puts "***** type #{type.inspect}"
         puts "***** file_type #{file_type.inspect}"
         puts "***** processors #{processors.inspect}"
