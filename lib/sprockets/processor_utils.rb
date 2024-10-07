@@ -54,8 +54,11 @@ module Sprockets
       metadata = (input[:metadata] || {}).dup
 
       processors.reverse_each do |processor|
+        puts "\n***** processor #{processor.inspect}"
+        puts "***** input #{data.inspect}"
         result = call_processor(processor, input.merge(data: data, metadata: metadata))
         data = result.delete(:data)
+        puts "***** output #{data.inspect}\n\n"
         metadata.merge!(result)
       end
 
