@@ -118,6 +118,7 @@ module Sprockets
       #
       # Returns a Sass::Script::String.
       def asset_path(path, options = {})
+        puts "**** Sass asset_path #{path.inspect}"
         path = path.value
 
         path, _, query, fragment = URI.split(path)[5..8]
