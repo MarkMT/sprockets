@@ -125,11 +125,13 @@ module Sprockets
         end
 
         processors = processors_for(type, file_type, engine_extnames, pipeline)
-        puts "***** name #{name.inspect}"
-        puts "***** type #{type.inspect}"
-        puts "***** input environment class #{self.class.inspect}"
-        puts "***** file_type #{file_type.inspect}"
-        puts "***** processors #{processors.inspect}"
+        if processors.any?
+          puts "***** name #{name.inspect}"
+          puts "***** type #{type.inspect}"
+          puts "***** input environment class #{self.class.inspect}"
+          puts "***** file_type #{file_type.inspect}"
+          puts "***** processors #{processors.inspect}"
+        end
 
         processors_dep_uri = build_processors_uri(type, file_type, engine_extnames, pipeline)
         dependencies = config[:dependencies] + [processors_dep_uri]
