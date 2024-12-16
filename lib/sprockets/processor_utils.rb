@@ -50,8 +50,6 @@ module Sprockets
     #
     # Returns a Hash with :data and other processor metadata key/values.
     def call_processors(processors, input)
-      puts "***** call_processors"
-      puts caller(0)
       data = input[:data] || ""
       metadata = (input[:metadata] || {}).dup
 
