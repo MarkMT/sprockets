@@ -73,6 +73,7 @@ module Sprockets
       return to_enum(__method__, path, options) unless block_given?
 
       asset = find_asset(path, options)
+      puts "***** found #{asset.inspect}"
       return unless asset
 
       yield asset
