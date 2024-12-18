@@ -127,6 +127,8 @@ module Sprockets
 
       paths, filters = args.flatten.partition { |arg| self.class.simple_logical_path?(arg) }
       filters = filters.map { |arg| self.class.compile_match_filter(arg) }
+      puts "***** paths #{paths.inspect}"
+      puts "***** filters #{filters.inspect}"
 
       environment = self.environment.cached
 
