@@ -102,18 +102,13 @@ module Sprockets
       seen = Set.new
 
       paths.each do |load_path|
-        puts "***** load_path #{load_path}"
         stat_tree(load_path).each do |filename, stat|
-          puts "     ***** filename #{filename}"
           next unless stat.file?
 
           path = split_subpath(load_path, filename)
-          puts "     ***** path #{path}"
           path, mime_type, _, _ = parse_path_extnames(path)
           path = normalize_logical_path(path)
-          puts "     ***** normalized path #{path}"
           path += mime_types[mime_type][:extensions].first if mime_type
-          puts "     ***** with mimetype #{path}"
 
           if !seen.include?(path)
             yield path, filename
