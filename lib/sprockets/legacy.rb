@@ -113,6 +113,7 @@ module Sprockets
           path = normalize_logical_path(path)
           puts "     ***** normalized path #{path}"
           path += mime_types[mime_type][:extensions].first if mime_type
+          puts "     ***** with mimetype #{path}"
 
           if !seen.include?(path)
             yield path, filename
