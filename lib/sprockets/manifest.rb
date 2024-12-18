@@ -125,11 +125,13 @@ module Sprockets
 
       return to_enum(__method__, *args) unless block_given?
 
-      puts "***** args #{args.inspect}"
+      puts "***** args"
+      args.flatten.each {|a| puts a.inspect}
       paths, filters = args.flatten.partition { |arg| self.class.simple_logical_path?(arg) }
       filters = filters.map { |arg| self.class.compile_match_filter(arg) }
       puts "***** paths #{paths.inspect}"
-      puts "***** filters #{filters.inspect}"
+      puts "***** filters"
+      filters.each{|a| puts a.inspect}
 
       environment = self.environment.cached
 
