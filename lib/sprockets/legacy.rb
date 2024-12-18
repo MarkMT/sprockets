@@ -1,5 +1,3 @@
-puts "***** loading legacy"
-puts caller(0)
 require 'pathname'
 require 'sprockets/asset'
 require 'sprockets/base'
