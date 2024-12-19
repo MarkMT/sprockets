@@ -30,7 +30,6 @@ module Sprockets
     #
     # Returns Asset.
     def load(uri)
-      puts "***** loading #{uri.inspect}"
       unloaded = UnloadedAsset.new(uri, self)
       if unloaded.params.key?(:id)
         unless asset = asset_from_cache(unloaded.asset_key)
@@ -126,7 +125,7 @@ module Sprockets
         end
 
         processors = processors_for(type, file_type, engine_extnames, pipeline)
-        if processors.any?
+        if name.match? /ckeditor\/skins\/moono-lisa\/editor/
           puts "***** name #{name.inspect}"
           puts "***** type #{type.inspect}"
           puts "***** processors #{processors.inspect}"
