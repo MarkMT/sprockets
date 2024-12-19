@@ -35,6 +35,8 @@ module Sprockets
       end
 
       @directory, @filename = args[0], args[1]
+      puts "***** manifest directory #{@directory.inspect}"
+      puts "***** manifest filename #{@filename.inspect}"
 
       # Whether the manifest file is using the old manifest-*.json naming convention
       @legacy_manifest = false
@@ -42,6 +44,8 @@ module Sprockets
       # Expand paths
       @directory = File.expand_path(@directory) if @directory
       @filename  = File.expand_path(@filename) if @filename
+      puts "***** expanded directory #{@directory.inspect}"
+      puts "***** expanded filename #{@filename.inspect}"
 
       # If filename is given as the second arg
       if @directory && File.extname(@directory) != ""
