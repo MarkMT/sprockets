@@ -30,6 +30,7 @@ module Sprockets
     #
     # Returns Asset.
     def load(uri)
+      puts "***** loading #{uri.inspect}"
       unloaded = UnloadedAsset.new(uri, self)
       if unloaded.params.key?(:id)
         unless asset = asset_from_cache(unloaded.asset_key)
