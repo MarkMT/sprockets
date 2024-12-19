@@ -125,7 +125,7 @@ module Sprockets
         end
 
         processors = processors_for(type, file_type, engine_extnames, pipeline)
-        if name.match? /ckeditor\/skins\/moono-lisa\/editor/
+        if name == 'ckeditor/skins/moono-lisa/editor'
           puts "***** name #{name.inspect}"
           puts "***** type #{type.inspect}"
           puts "***** processors #{processors.inspect}"
