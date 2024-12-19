@@ -61,9 +61,7 @@ module Sprockets
 
     # Find asset by logical path or expanded path.
     def find_asset(path, options = {})
-      puts "***** find_asset for #{path.inspect}"
       uri, _ = resolve(path, options.merge(compat: false))
-      puts "***** uri #{uri.inspect}"
       if uri
         load(uri)
       end
@@ -73,7 +71,6 @@ module Sprockets
       return to_enum(__method__, path, options) unless block_given?
 
       asset = find_asset(path, options)
-      puts "***** found #{asset.inspect}"
       return unless asset
 
       yield asset
