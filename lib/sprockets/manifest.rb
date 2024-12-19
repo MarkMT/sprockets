@@ -206,6 +206,7 @@ module Sprockets
         end
 
         target = File.join(dir, asset.digest_path)
+        puts "***** writing to #{target}"
 
         if File.exist?(target)
           logger.debug "Skipping #{target}, already exists"
