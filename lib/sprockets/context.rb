@@ -25,14 +25,6 @@ module Sprockets
     attr_accessor :__LINE__
 
     def initialize(input)
-      puts "***** logical path #{input[:name]}"
-      puts "***** filename #{input[:filename]}"
-      puts "***** load_path #{input[:load_path]}"
-      puts "***** ancestors #{self.ancestors.inspect}"
-      ancestors.each do |a|
-        puts "***** #{a.name}  #{a.respond_to?(:asset_path)}"
-      end
-      raise "stop here"
       @environment  = input[:environment]
       @metadata     = input[:metadata]
       @load_path    = input[:load_path]
